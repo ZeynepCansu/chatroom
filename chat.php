@@ -18,14 +18,14 @@
   </head>
   
   <body>
-<script>
+<!-- <script>
     $(document).ready(
             function() {
                 setInterval(function() {
-                    $('#main').load('chatlog.php');
+                    $('#main').load('https://raw.githubusercontent.com/ZeynepCansu/chatroom/master/chatlog.php');
                                     }, 1000);
             });
-</script>
+</script> -->
 
 <div id="main">
 <button type="button" id="startbutton" onclick="getStarted()">Click to start</button>
@@ -36,12 +36,13 @@
           <label id="user"></label>
           <input type = "text"
                  id = "myText"
-                 name= "chat_line"
-                 value = "Write something" />
-       <button type="submit" id="submitbutton">Send</button>
+                 name = "chat_line"
+                >
+       <input type="submit" id="submitbutton">Send</button>
         </fieldset>
     </form>
   </body>
 
   </html>
+
 
