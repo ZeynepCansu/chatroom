@@ -9,40 +9,108 @@
 	<meta name="keywords" content="illustration, art, digital, visual poetry, london, turkish, poetry, female artist">
     <meta charset="UTF-8">
     <html lang="en-EN">
+    <link rel="stylesheet" type="text/css" href="chat.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js">
 	<script language="javascript" type="text/javascript" src="p5.min.js"></script>
 	<script language="javascript" src="chat.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
-	<script type="text/javascript"src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	 <link rel="stylesheet" type="text/css" href="chat.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	
 	
   </head>
   
   <body>
-<!-- <script>
-    $(document).ready(
+
+
+	<!-- $(document).ready(
             function() {
-                setInterval(function() {
-                    $('#main').load('https://raw.githubusercontent.com/ZeynepCansu/chatroom/master/chatlog.php');
-                                    }, 1000);
-            });
-</script> -->
+            	setInterval(function() {
+            	$('#chat_log').load("/chatlog.php");
+            	}, 1000);
+            	}); */
 
-<div id="main">
-<button type="button" id="startbutton" onclick="getStarted()">Click to start</button>
-</div>
+	/* $(document).ready(function() {
+	 		var frm = $('#form1');
+    frm.submit(function (ev) {
+    	// ev.preventDefault();
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                alert('ok');
+            }
+        });
+        
+    });
+});
 
-<form id="form" action="chatlog.php" method="post">
+	/* function submitName() {
+	var username = document.getElementById("username").value;
+	    $.ajax({
+            type : "POST",  //type of method
+            url  : "/chatlog.php",  //your page
+            data : { username: username }, // passing the values
+            success : function(data){  
+                       $('#chat_log').load("chatlog.php");
+                       alert(username);
+                    }
+        });
+	}
+
+    function submitChatLine() {
+ 	var chat_line = $("#chatline").val();
+	 $.ajax({
+            type : "POST",  //type of method
+            url  : "/chatlog.php",  //your page
+            data : { chatline : chatline}, // passing the values
+            success : function(data){  
+                       $('#chat_log').load("chatlog.php");
+                       alert(chatline);
+                    }
+        });
+ } -->
+	
+
+
+
+
+
+<form id="form1"  method="post">
+		  
+         <input type = "text"
+        		placeholder="Your name" 
+                 id = "username"
+                 name = "username"
+                />
+<input type="submit" id="startbutton" value="OK" />
+</form>
+
+<form id="form2" method="post">
       <fieldset id="formfields">
           <label id="user"></label>
           <input type = "text"
-                 id = "myText"
-                 name = "chat_line"
-                >
-       <input type="submit" id="submitbutton">Send</button>
+                 id = "chatline"
+                 name = "chatline"
+                />
+       <input type="submit" id="submitbutton" value="Send" />
         </fieldset>
     </form>
+
+<p>Array of posts:</p>
+
+   <?php
+  $username = $_POST['username'];
+  $chatline = $_POST['chatline'];
+  if(isset($_POST['chatline']) ) 
+{ 
+   echo "$username said $chatline";
+}
+
+?>
+
   </body>
 
   </html>
+
 
 
